@@ -1,20 +1,29 @@
 <div>
-  <h1>Rock, Paper, Scissors</h1>
-  <h4>Player: {{state.score.player}}, Opponent: {{state.score.opponent}}</h4>
-  <div [ngSwitch]="state.gameState">
-    <button *ngSwitchCase="GameState.Waiting" (click)="start()">Start</button>
-    <span *ngSwitchCase="GameState.Countdown">{{state.countdownTimer}}</span>
-    <div *ngSwitchCase="GameState.Playing">
-      <div>
-        <div *ngIf="state.playerItem === null">
-          <rps-logo *ngFor="let option of playerOptions" [option]="option" (click)="selectPlayerItem(option)"></rps-logo>
+  <nav>
+   <div class="nav-wrapper">
+     <a href="#" class="brand-logo">Rock, Paper, Scissors</a>
+   </div>
+  </nav>
+  <div class="container">
+    <h4 class="center-align">Player: {{state.score.player}}, Opponent: {{state.score.opponent}}</h4>
+    <div class="center-align game-container" [ngSwitch]="state.gameState">
+      <button *ngSwitchCase="GameState.Waiting" class="btn btn-large" (click)="start()">Start</button>
+      <span *ngSwitchCase="GameState.Countdown">{{state.countdownTimer}}</span>
+      <div *ngSwitchCase="GameState.Playing" class="row">
+        <div class="col s12 m6">
+          <div *ngIf="state.playerItem === null" class="player-options-container row">
+            <p>Click an option</p>
+            <rps-logo *ngFor="let option of playerOptions" [option]="option" (click)="selectPlayerItem(option)" class="col s4"></rps-logo>
+          </div>
+          <rps-logo *ngIf="state.playerItem !== null" [option]="state.playerItem"></rps-logo>
         </div>
-        <rps-logo *ngIf="state.playerItem !== null" [option]="state.playerItem"></rps-logo>
+        <div class="col s12 m6">
+          <rps-logo [option]="state.opponentItem"></rps-logo>
+        </div>
+        <div class="col s12">
+          <button class="btn btn-large" *ngIf="state.playerItem !== null" (click)="start()">Play Again</button>
+        </div>
       </div>
-      <div>
-        <rps-logo [option]="state.opponentItem"></rps-logo>
-      </div>
-      <button *ngIf="state.playerItem !== null" (click)="start()">Play Again</button>
     </div>
   </div>
 </div>
