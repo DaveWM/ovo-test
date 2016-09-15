@@ -1,3 +1,20 @@
-<h1>
-  {{title}}
-</h1>
+<div>
+  <h1>Rock, Paper, Scissors</h1>
+  <h4>Player: {{state.score.player}}, Opponent: {{state.score.opponent}}</h4>
+  <div [ngSwitch]="state.gameState">
+    <button *ngSwitchCase="GameState.Waiting" (click)="start()">Start</button>
+    <span *ngSwitchCase="GameState.Countdown">{{state.countdownTimer}}</span>
+    <div *ngSwitchCase="GameState.Playing">
+      <div>
+        <div *ngIf="state.playerItem === null">
+          <rps-logo *ngFor="let option of playerOptions" [option]="option" (click)="selectPlayerItem(option)"></rps-logo>
+        </div>
+        <rps-logo *ngIf="state.playerItem !== null" [option]="state.playerItem"></rps-logo>
+      </div>
+      <div>
+        <rps-logo [option]="state.opponentItem"></rps-logo>
+      </div>
+      <button *ngIf="state.playerItem !== null" (click)="start()">Play Again</button>
+    </div>
+  </div>
+</div>

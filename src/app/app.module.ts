@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { RPSLogoComponent } from './rps-logo/rps-logo.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RPSLogoComponent
   ],
   imports: [
     BrowserModule,

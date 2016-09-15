@@ -2,32 +2,37 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { GameState } from './game-state.enum';
 
 describe('App: OvoTest', () => {
+  let fixture;
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
       ],
     });
+    fixture = TestBed.createComponent(AppComponent);
   });
 
   it('should create the app', async(() => {
-    let fixture = TestBed.createComponent(AppComponent);
     let app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
 
-  it(`should have as title 'app works!'`, async(() => {
-    let fixture = TestBed.createComponent(AppComponent);
+  it('should have a global state object', async(() => {
     let app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app works!');
+    expect(app.state).toBeTruthy();
+  }));
+
+  it(`should initially be in the 'Waiting' state`, async(() => {
+    let app = fixture.debugElement.componentInstance;
+    expect(app.state.gameState).toEqual(GameState.Waiting);
   }));
 
   it('should render title in a h1 tag', async(() => {
-    let fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     let compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('app works!');
+    expect(compiled.querySelector('h1').textContent).toContain('Rock, Paper, Scissors');
   }));
 });
