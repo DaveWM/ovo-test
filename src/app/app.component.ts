@@ -48,7 +48,7 @@ export class AppComponent {
   }
 
   selectPlayerItem(selected : RockPaperScissors) {
-    let opponentItem = <RockPaperScissors>Math.floor(Math.random() * 3);
+    let opponentItem = <RockPaperScissors>(Math.floor(Math.random() * 3) + 1);
     this.state.opponentItem = opponentItem;
     this.state.playerItem = selected;
     let playerWins = doesBeat(selected, opponentItem);
