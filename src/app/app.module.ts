@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { RPSLogoComponent } from './rps-logo/rps-logo.component';
+import { CounterComponent } from './counter/counter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RPSLogoComponent
+    RPSLogoComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,
