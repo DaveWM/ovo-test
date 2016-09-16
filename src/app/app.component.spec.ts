@@ -2,6 +2,10 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { RPSLogoComponent } from './rps-logo/rps-logo.component';
+import { CounterComponent } from './counter/counter.component';
+import { ScoreboardComponent } from './scoreboard/scoreboard.component';
+
 import { GameState } from './game-state.enum';
 
 describe('App: OvoTest', () => {
@@ -9,7 +13,10 @@ describe('App: OvoTest', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        RPSLogoComponent,
+        CounterComponent,
+        ScoreboardComponent
       ],
     });
     fixture = TestBed.createComponent(AppComponent);
@@ -30,9 +37,9 @@ describe('App: OvoTest', () => {
     expect(app.state.gameState).toEqual(GameState.Waiting);
   }));
 
-  it('should render title in a h1 tag', async(() => {
+  it('should render title in a nav', async(() => {
     fixture.detectChanges();
     let compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Rock, Paper, Scissors');
+    expect(compiled.querySelector('nav').textContent).toContain('Rock, Paper, Scissors');
   }));
 });
