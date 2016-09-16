@@ -4,6 +4,12 @@ import {RockPaperScissors} from './rock-paper-scissors.enum'
 import * as Rx from 'rxjs';
 import {doesBeat} from './helpers';
 
+enum GameResult {
+  Win,
+  Loss,
+  Draw
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,6 +18,7 @@ import {doesBeat} from './helpers';
 export class AppComponent {
   GameState = GameState;
   RockPaperScissors = RockPaperScissors;
+  GameResult = GameResult;
   playerOptions = Object.keys(RockPaperScissors).map(x => parseInt(x)).filter(x => x >= 0);
   // would be nice to use immutablejs for global state, but I don't have time
   state = {
@@ -22,7 +29,8 @@ export class AppComponent {
     score: {
       player: 0,
       opponent: 0
-    }
+    },
+    lastGameResult: <GameResult>null
   };
 
   start() {
@@ -53,9 +61,13 @@ export class AppComponent {
     this.state.playerItem = selected;
     let playerWins = doesBeat(selected, opponentItem);
     if(playerWins) {
+      this.state.lastGameResult = GameResult.Win;
       this.state.score.player++;
     } else if(playerWins === false) {
+      this.state.lastGameResult = GameResult.Loss;
       this.state.score.opponent++;
+    } else {
+      this.state.lastGameResult = GameResult.Draw;
     }
   }
 }

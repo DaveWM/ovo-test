@@ -20,6 +20,11 @@
         <div class="col s12 m6">
           <rps-logo [option]="state.opponentItem"></rps-logo>
         </div>
+        <div class="col s12 result" *ngIf="state.playerItem !== null" [ngSwitch]="state.lastGameResult">
+          <span *ngSwitchCase="GameResult.Win">You Won!</span>
+          <span *ngSwitchCase="GameResult.Loss">You Lost :(</span>
+          <span *ngSwitchCase="GameResult.Draw">Draw</span>
+        </div>
         <div class="col s12">
           <button class="btn btn-large" *ngIf="state.playerItem !== null" (click)="start()">Play Again</button>
         </div>
