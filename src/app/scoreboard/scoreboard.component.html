@@ -2,11 +2,11 @@
   <div class="row">
       <div class="col s6">
         <h4>Player</h4>
-        <span class="score">{{score.player}}</span>
+        <span class="score" [@scoreChange]="score.player">{{score.player}}</span>
       </div>
       <div class="col s6">
         <h4>Opponent</h4>
-        <span class="score">{{score.opponent}}</span>
+        <span class="score" [@scoreChange]="score.opponent">{{score.opponent}}</span>
       </div>
   </div>
 </div>
