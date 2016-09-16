@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {GameState} from './game-state.enum'
 import {RockPaperScissors} from './rock-paper-scissors.enum'
 import * as Rx from 'rxjs';
-import {doesBeat} from './helpers';
+import {RpsService} from './rps.service'
 
 enum GameResult {
   Win,
@@ -13,7 +13,8 @@ enum GameResult {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [RpsService]
 })
 export class AppComponent {
   GameState = GameState;
@@ -32,6 +33,9 @@ export class AppComponent {
     },
     lastGameResult: <GameResult>null
   };
+
+  constructor(private rpsService : RpsService){
+  }
 
   start() {
     Object.assign(this.state, {
@@ -59,7 +63,7 @@ export class AppComponent {
     let opponentItem = <RockPaperScissors>(Math.floor(Math.random() * 3) + 1);
     this.state.opponentItem = opponentItem;
     this.state.playerItem = selected;
-    let playerWins = doesBeat(selected, opponentItem);
+    let playerWins = this.rpsService.doesBeat(selected, opponentItem);
     if(playerWins) {
       this.state.lastGameResult = GameResult.Win;
       this.state.score.player++;
