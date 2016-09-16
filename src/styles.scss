@@ -1,1 +1,9 @@
 @import '../node_modules/materialize-css/sass/materialize.scss';
+
+app-root {
+  .loading-icon {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+  }
+}
