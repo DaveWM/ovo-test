@@ -6,12 +6,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { RPSLogoComponent } from './rps-logo/rps-logo.component';
 import { CounterComponent } from './counter/counter.component';
+import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RPSLogoComponent,
-    CounterComponent
+    CounterComponent,
+    ScoreboardComponent
   ],
   imports: [
     BrowserModule,

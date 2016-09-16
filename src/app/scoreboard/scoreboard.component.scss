@@ -1,0 +1,15 @@
+.score {
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  font-size: 35px;
+  width: 55px;
+  height: 55px;
+  display: inline-block;
+  padding: 4px;
+}
+
+:host {
+  display: inline-block;
+  width: 100%;
+}

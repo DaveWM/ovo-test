@@ -4,8 +4,8 @@
      <a href="#" class="brand-logo">Rock, Paper, Scissors</a>
    </div>
   </nav>
-  <div class="container">
-    <h4 class="center-align">Player: {{state.score.player}}, Opponent: {{state.score.opponent}}</h4>
+  <div class="container center-align">
+    <scoreboard class="center-align" [score]="state.score"></scoreboard>
     <div class="center-align game-container" [ngSwitch]="state.gameState">
       <button *ngSwitchCase="GameState.Waiting" class="btn btn-large" (click)="start()">Start</button>
       <counter *ngSwitchCase="GameState.Countdown" [value]="state.countdownTimer"></counter>
