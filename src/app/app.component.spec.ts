@@ -7,6 +7,7 @@ import { CounterComponent } from './counter/counter.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 
 import { GameState } from './game-state.enum';
+import {NoopAnimationsModule} from "@angular/platform-browser/animations";
 
 describe('App: OvoTest', () => {
   let fixture;
@@ -18,6 +19,9 @@ describe('App: OvoTest', () => {
         CounterComponent,
         ScoreboardComponent
       ],
+      imports: [
+        NoopAnimationsModule
+      ]
     });
     fixture = TestBed.createComponent(AppComponent);
   });

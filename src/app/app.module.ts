@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { RPSLogoComponent } from './rps-logo/rps-logo.component';
 import { CounterComponent } from './counter/counter.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ScoreboardComponent } from './scoreboard/scoreboard.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
