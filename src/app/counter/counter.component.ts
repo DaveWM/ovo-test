@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, trigger, state, style, transition, animate } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+import {Component, Input} from "@angular/core";
 
 @Component({
   selector: 'counter',
@@ -11,7 +12,7 @@ import { Component, OnInit, Input, trigger, state, style, transition, animate } 
           transform: 'scale(1)',
           opacity: 1
         }),
-        animate('1s ease', style({
+        animate('0.95s ease', style({
           transform: 'scale(3)',
           opacity: 0
         }))
